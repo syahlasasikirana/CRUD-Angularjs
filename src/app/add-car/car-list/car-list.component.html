@@ -1,0 +1,39 @@
+<div class="row mt-5 mb-3">
+  <div class="coll-8"></div>
+  <div class="coll-4 text-end">
+    <button type="button" class="btn btn-success" (click)="addCar()">Add New Car</button>
+  </div>
+</div>
+
+<div class="row">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Car Name</th>
+            <th scope="col">Number</th>
+            <th scope="col">Color</th>
+            <th scope="col">Type</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="carList.length > 0">
+          <tr *ngFor="let car of carList; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{car.carName}}</td>
+            <td>{{car.number}}</td>
+            <td>{{car.color}}</td>
+            <td>{{car.type}}</td>
+            <td>
+              <button type="button" class="btn btn-success" (click)="edit(car)">Edit</button>&nbsp;
+              <button type="button" class="btn btn-secondary" (click)="deleteCar(car)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="carList.length == 0">
+          <tr>
+            <th colspan="5">Data Not Found</th>
+          </tr>
+        </tbody>
+      </table>
+</div>
